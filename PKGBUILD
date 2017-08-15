@@ -1,7 +1,6 @@
 # Maintainer: chliny <chliny11 at gmail dot com>
 
-pkgname=openLTE
-_pkgname=openlte
+pkgname=openlte
 _pkgver=v00-20-05
 pkgver=v00_20_05
 pkgrel=1
@@ -13,8 +12,8 @@ depends=('gnuradio' 'gnuradio-osmosdr' 'libuhd' 'bladerf' 'mbedtls')
 #optdepends=('git')
 install=openlte.install
 source=(
-    "https://sourceforge.net/projects/${_pkgname}/files/${_pkgname}_${_pkgver}.tgz"
-    "${_pkgname}.patch"
+    "https://sourceforge.net/projects/${pkgname}/files/${pkgname}_${_pkgver}.tgz"
+    "${pkgname}.patch"
     )
 sha512sums=(
     'SKIP'
@@ -22,8 +21,8 @@ sha512sums=(
     )
 
 build() {
-    cd "${srcdir}/${_pkgname}_${_pkgver}"
-    patch -p1 < ../../${_pkgname}.patch
+    cd "${srcdir}/${pkgname}_${_pkgver}"
+    patch -p1 < ../../${pkgname}.patch
     mkdir -p build
     mkdir -p install
     cd build
@@ -32,7 +31,7 @@ build() {
 }
 
 package() {
-    cd "${srcdir}/${_pkgname}_${_pkgver}/install"
+    cd "${srcdir}/${pkgname}_${_pkgver}/install"
 
     mkdir -p "${pkgdir}/usr/share/${pkgname}"
 
